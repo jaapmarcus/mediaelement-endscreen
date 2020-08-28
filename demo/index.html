@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../node_modules/mediaelement/build/mediaelementplayer.min.css" />
+		<link rel="stylesheet" href="" />
+		
+		<style>
+    		    .demo{
+                max-width: 100%;
+                height: auto;
+            }
+            .video-container{
+                max-width: 500px;
+                height: 300px;
+            }
+            .mejs-end-screen{
+                background-color: black;
+                display: block !important;
+                height: 100%;
+                width: 100%;
+            }
+            .mejs-endscreen-title{
+
+            }
+            .mejs-endscreen-h3{
+                color:white;
+                margin:10px;
+                font-size: 14px;
+            }
+            .mejs-endscreen-image{
+                width:210px;
+                height: 150px;
+                color:white;
+                float:left;
+            }
+            
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="video-container">
+				<video id="video" poster="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg" controls playsinline height="100%" width="100%">
+					<source type="video/mp4" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4">
+					
+					<!--http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4--->
+				</video>
+			</div>
+			<ul id="messages">
+			</ul>
+		</div>
+		<script type="text/javascript" src="../node_modules/mediaelement/build/mediaelement-and-player.min.js"></script>
+		<script type="text/javascript" src="../src/mediaelement-endscreen.js"></script>
+        <script type="text/javascript">
+        settings = {
+            stretching : "fill",
+            features : ['playpause','current','progress','duration','volume','fullscreen','endscreen'],
+            enableAutosize : false,
+	   };
+	var player = new MediaElementPlayer('video',settings);
+        </script>
+	</body>
+</html>
