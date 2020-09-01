@@ -1,0 +1,24 @@
+.mejs-end-screen{
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}
+.mejs-end-h3{
+    color:white;
+    position: absolute;
+    top:10px;
+    left: 10px;    
+}
+.mejs-endscreen-video{
+    
+}
+
+.mejs-endscreen-video img {
+    
+}
+.mejs-endscreen-h4{
+    color:white;
+    margin:0px;
+    padding:0px;
+    text-align: center;
+}

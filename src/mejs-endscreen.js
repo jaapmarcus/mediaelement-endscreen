@@ -39,14 +39,21 @@ Object.assign(MediaElementPlayer.prototype, {
 
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-        console.log(this);
-        console.log(t);
-         t.endScreen.innerHTML = this.responseText;
+        if(this.readyState == 4 && this.status == 200){
+            const data = JSON.parse(this.responseText);
+            
+            var txt = '<h3 class="mejs-end-h3">'+data.title+'</h3>';
+            for(i = 0; i < data.videos.length; i++){
+               var video =  data.videos[i];
+               txt += '<div class="mejs-endscreen-video"><img src="'+ video.image +'" height="150px" width="200px" /><h4 class="mejs-endscreen-h4">'+video.title+'</h4></div>';
+            };
+            t.endScreen.innerHTML = txt;
         }
       };
-      xhttp.open("GET", "./endscreen.txt", true);
-      xhttp.send();
+      console.log(ajaxURL.ajax_url);
+      xhttp.open("POST", ajaxURL.ajax_url, true);
+      xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;');
+      xhttp.send('action=getvideos');
 
    }
 });
