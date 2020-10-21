@@ -1,24 +1,62 @@
 .mejs-end-screen{
     background-color: black;
+    display: block !important;
     height: 100%;
     width: 100%;
+    text-align: center;
+
 }
-.mejs-end-h3{
+.mejs-endscreen-title{
+
+}
+.mejs-endscreen-h3, #mejs-endscreen-related-video h3{
     color:white;
-    position: absolute;
-    top:10px;
-    left: 10px;    
+    margin:10px;
+    font-size: 20px;
+    padding:0px !important;
+    clear:none;
+
 }
-.mejs-endscreen-video{
-    
+.mejs-endscreen-image{
+    width:210px;
+    height: 150px;
+    color:white;
+    float:left;
 }
 
-.mejs-endscreen-video img {
+.mejs-endscreen-ul{
+   margin:5px;
+   padding:5px; 
+   list-style: none;           
+}
+.mejs-endscreen-ul li{
+    dislpay:block;
+    padding:10px;
+    margin:20px auto;
     
 }
-.mejs-endscreen-h4{
+.mejs-endscreen-whatsapp{
+    background-color:#25D366;
+    width:150px;
+}
+.mejs-endscreen-facebook{
+    background-color:#3b5998;
+    width:150px;
+}
+.mejs-endscreen-twitter{
+    background-color:#00aced;
+    width:150px;
+}
+.mejs-endscreen-ul li a{
     color:white;
-    margin:0px;
-    padding:0px;
-    text-align: center;
+    text-decoration: none;
+}
+#mejs-endscreen-related-video { 
+    float:right; 
+    width:200px;
+    padding-right: 10px;
+    
+}
+#mejs-endscreen-related-video a{
+   color: white;
 }

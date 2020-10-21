@@ -23,10 +23,10 @@ Object.assign(MediaElementPlayer.prototype, {
        
        console.log(t);
        console.log(t.player.media);
-       t.player.media.addEventListener('ended', t.showVideos.bind(t));
+       t.player.media.addEventListener('ended', t.showEndsceen.bind(t));
    },
             
-   showVideos : function (){
+   showEndsceen : function (){
        var t = this;
        t.endScreen = document.createElement('div');
        t.endScreen.classList.add('mejs-end-screen');
@@ -34,26 +34,19 @@ Object.assign(MediaElementPlayer.prototype, {
          
        t.layers.appendChild(this.endScreen);
        
-        t.endScreen.classList.add('mejs__layer');
-        t.endScreen.classList.add('mejs__overlay');   
+       t.endScreen.classList.add('mejs__layer');
+       t.endScreen.classList.add('mejs__overlay');   
 
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if(this.readyState == 4 && this.status == 200){
-            const data = JSON.parse(this.responseText);
-            
-            var txt = '<h3 class="mejs-end-h3">'+data.title+'</h3>';
-            for(i = 0; i < data.videos.length; i++){
-               var video =  data.videos[i];
-               txt += '<div class="mejs-endscreen-video"><img src="'+ video.image +'" height="150px" width="200px" /><h4 class="mejs-endscreen-h4">'+video.title+'</h4></div>';
-            };
-            t.endScreen.innerHTML = txt;
-        }
-      };
-      console.log(ajaxURL.ajax_url);
-      xhttp.open("POST", ajaxURL.ajax_url, true);
-      xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;');
-      xhttp.send('action=getvideos');
+       t.endScreen.innerHTML="<div class=\"mejs-endscreen-video\" id=\"mejs-endscreen-related-video\"></div><h3 class=\"mejs-endscreen-h3\">Deel video</h3>";
+       t.endScreen.innerHTML+="<ul class=\"mejs-endscreen-ul\"><li class=\"mejs-endscreen-whatsapp\"><a href=\"https://api.whatsapp.com/send?text="+ encodeURIComponent(window.location) +"\"><i class=\"fab fa-whatsapp\"></i> Share Video<a></li><li class=\"mejs-endscreen-facebook\"><a href=\"http://www.facebook.com/sharer.php?u="+ encodeURIComponent(window.location) +"\"><i class=\"fab fa-facebook\"></i> Deel Video<a></li><li class=\"mejs-endscreen-twitter\"><a href=\"https://twitter.com/share?text="+document.title+"&url="+ encodeURIComponent(window.location) +"\"><i class=\"fab fa-twitter\"></i> Deel Video<a></li></ul>";
+       t.player.media.addEventListener('playing', t.hideEndscreen.bind(t));
 
+   },
+   
+   hideEndscreen : function (){
+       var t = this;
+       console.log(this.endScreen);
+       t.layers.removeChild(this.endScreen)
    }
+   
 });

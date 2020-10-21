@@ -2,8 +2,8 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="../node_modules/mediaelement/build/mediaelementplayer.min.css" />
-		<link rel="stylesheet" href="" />
-		
+		<link rel="stylesheet" href="../src/mejs-endscreen.css" />
+		<link href="./fontawesome/css/all.css" rel="stylesheet">
 		<style>
     		    .demo{
                 max-width: 100%;
@@ -13,26 +13,7 @@
                 max-width: 500px;
                 height: 300px;
             }
-            .mejs-end-screen{
-                background-color: black;
-                display: block !important;
-                height: 100%;
-                width: 100%;
-            }
-            .mejs-endscreen-title{
 
-            }
-            .mejs-endscreen-h3{
-                color:white;
-                margin:10px;
-                font-size: 14px;
-            }
-            .mejs-endscreen-image{
-                width:210px;
-                height: 150px;
-                color:white;
-                float:left;
-            }
             
 
 		</style>
@@ -49,13 +30,15 @@
 			<ul id="messages">
 			</ul>
 		</div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="../node_modules/mediaelement/build/mediaelement-and-player.min.js"></script>
-		<script type="text/javascript" src="../src/mediaelement-endscreen.js"></script>
+		<script type="text/javascript" src="../src/mejs-endscreen.js"></script>
         <script type="text/javascript">
         settings = {
             stretching : "fill",
             features : ['playpause','current','progress','duration','volume','fullscreen','endscreen'],
             enableAutosize : false,
+            ajaxPath : './ajax.json'
 	   };
 	var player = new MediaElementPlayer('video',settings);
         </script>
