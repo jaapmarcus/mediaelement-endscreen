@@ -37,8 +37,12 @@ Object.assign(MediaElementPlayer.prototype, {
        t.endScreen.classList.add('mejs__layer');
        t.endScreen.classList.add('mejs__overlay');   
 
-       t.endScreen.innerHTML="<div class=\"mejs-endscreen-video\" id=\"mejs-endscreen-related-video\"></div><h3 class=\"mejs-endscreen-h3\">Deel video</h3>";
-       t.endScreen.innerHTML+="<ul class=\"mejs-endscreen-ul\"><li class=\"mejs-endscreen-whatsapp\"><a href=\"https://api.whatsapp.com/send?text="+ encodeURIComponent(window.location+'?utm_source=share') +"\"><i class=\"fab fa-whatsapp\"></i> Share Video<a></li><li class=\"mejs-endscreen-facebook\"><a href=\"http://www.facebook.com/sharer.php?u="+ encodeURIComponent(window.location+'?utm_source=share') +"\"><i class=\"fab fa-facebook\"></i> Deel Video<a></li><li class=\"mejs-endscreen-twitter\"><a href=\"https://twitter.com/share?text="+document.title+"&url="+ encodeURIComponent(window.location+'?utm_source=share') +"\"><i class=\"fab fa-twitter\"></i> Deel Video<a></li></ul>";
+       if (document.getElementById("endscreen-data")) {
+          console.log(window.innerWidth);
+          console.log(window.innerHeight);
+          t.endScreen.innerHTML =
+            document.getElementById("endscreen-data").innerHTML;
+        }
        t.player.media.addEventListener('playing', t.hideEndscreen.bind(t));
 
    },
