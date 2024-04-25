@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../node_modules/mediaelement/build/mediaelementplayer.min.css" />
+    <link rel="stylesheet" href="../src/mejs-endscreen.css" />
+    <link href="./fontawesome/css/all.css" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../node_modules/mediaelement/build/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="../src/mejs-endscreen.js"></script>
+  </head>
+  <body style="margin:0px; padding:0px;">
+   <div style="height:100%; width:100%">
+    <video id="video" poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg" controls playsinline height="100%" width="100%">
+     <source type="video/mp4" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4">
+   </div> 
+   <div class="hidden" id="endscreen-data">
+      <div style="color:white;">Here is my endscreen loading in an hidden div</div>
+   </div>
+    <script type="text/javascript">
+        //object fetched via ajax or hard code in this embed page 
+        videos = [
+          { url: 'https://videodrops.nl/politiepaard-hoort-muziek-op-straat-en-begint-spontaan-mee-te-dansen/', title: 'Politiepaard hoort muziek op straat en begint spontaan mee te dansen',
+          image: 'https://videodrops.nl/wp-content/uploads/2024/04/politiepaard-365x210.jpg.webp'
+        },
+        { url: 'https://videodrops.nl/zo-pak-je-jouw-cadeautjes-op-een-geniale-manier-in/', title: 'Zo pak je jouw cadeautjes op een geniale manier in',
+          image: 'https://videodrops.nl/wp-content/uploads/2024/04/cadeaus-365x210.jpg.webp'
+        },
+        { url: 'https://videodrops.nl/zo-pak-je-jouw-cadeautjes-op-een-geniale-manier-in/', title: 'Zo pak je jouw cadeautjes op een geniale manier in',
+          image: 'https://videodrops.nl/wp-content/uploads/2024/04/cadeaus-365x210.jpg.webp'
+        },
+        { url: 'https://videodrops.nl/zo-pak-je-jouw-cadeautjes-op-een-geniale-manier-in/', title: 'Zo pak je jouw cadeautjes op een geniale manier in',
+          image: 'https://videodrops.nl/wp-content/uploads/2024/04/cadeaus-365x210.jpg.webp'
+        },
+        { url: 'https://videodrops.nl/zo-pak-je-jouw-cadeautjes-op-een-geniale-manier-in/', title: 'Zo pak je jouw cadeautjes op een geniale manier in',
+          image: 'https://videodrops.nl/wp-content/uploads/2024/04/cadeaus-365x210.jpg.webp'
+        }        
+        ];
+        
+          settings = {
+              stretching : "fill",
+              features : ['playpause','current','progress','duration','volume','fullscreen','endscreen'],
+              enableAutosize : false,
+       };
+    var player = new MediaElementPlayer('video',settings);
+  </script>    
+   
+  </body>
+</html>
